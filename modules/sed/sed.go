@@ -67,8 +67,10 @@ func (r *sed) sedReplace(hq HistoryQueue, nicks []string, arguments []string, se
 		myself, other := isSed(nicks, argument)
 		if myself || other {
 			println("yep it's sed--->", strings.Join(arguments, " "))
+			println(len(hq.items))
 			if sedPattern.MatchString(strings.Join(arguments, " ")) {
 				sed := strings.Split(strings.Join(arguments, " "), "/")
+				println(sed[0], sed[1], sed[2])
 				first, err := regexp.Compile(sed[1])
 				if err != nil {
 					r.Log.Debug("error compiling regexp", "sed", replaced, "err", err)
@@ -110,7 +112,6 @@ func (r *sed) sedReplace(hq HistoryQueue, nicks []string, arguments []string, se
 							}
 							rpl = append(rpl, replaced)
 							return rpl
-
 						}
 					}
 				}
