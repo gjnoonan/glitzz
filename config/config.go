@@ -52,7 +52,6 @@ func Default() Config {
 		CommandPrefix: ".",
 		EnabledModules: []string{
 			"c3",
-			"decide",
 			"fourchan",
 			"info",
 			"links",
